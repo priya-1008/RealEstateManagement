@@ -1,0 +1,17 @@
+Client\AdminClient.class
+Entity\Statemaster.class
+EJB\AdminEJBLocal.class
+com\mycompany\realestatemanagement\resources\JavaEE8Resource.class
+RestResources\AdminResource.class
+Entity\Propertyimage.class
+Entity\Citymaster.class
+Entity\Usermaster.class
+Entity\Propertydetails.class
+CDIBeans\AdminManageBeans$1.class
+CDIBeans\AdminManageBeans.class
+Entity\Transactiondetails.class
+Entity\Areamaster.class
+com\mycompany\realestatemanagement\JAXRSConfiguration.class
+Entity\Feedback.class
+EJB\AdminEJB.class
+Entity\Rolemaster.class
