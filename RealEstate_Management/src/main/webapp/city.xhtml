@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>City Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="City Name:" />
+            <h:inputText value="#{adminBean.cityName}" />
+
+            <h:outputLabel value="State:" />
+            <h:selectOneMenu value="#{adminBean.stateid}">
+                <f:selectItem itemLabel="Select State" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{adminBean.stateList}" var="state"
+                               itemValue="#{state.stateId}" itemLabel="#{state.stateName}" />
+            </h:selectOneMenu>
+
+            <h:commandButton value="Add City" action="#{adminBean.addCity()}" />
+        </h:form>
+        
+        <h1>All City List</h1>
+        <h:dataTable value="#{adminBean.cityList}" var="city" border="2">
+            <h:column>
+                <f:facet name="header">State Id</f:facet>
+                    #{city.cityId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">State Name</f:facet>
+                    #{city.cityName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">City Name</f:facet>
+                    #{city.stateId.stateName}
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h:outputLabel value="Description:" for="description" />
+            <h:inputText id="description" value="#{adminBean.description}" />
+            <br />
+
+            <h:outputLabel value="Select Image:" for="file" />
+            <h:inputFile id="file" value="#{dminBean.file}" />
+            <br />
+
+            <h:commandButton value="Upload" action="#{propertyImagesBean.upload}" />
+            <h:messages />
+        </h:form>
+
+        <h:dataTable value="#{adminBean.imageList}" var="image">
+            <h:column>
+                <f:facet name="header">Image ID</f:facet>
+                <h:outputText value="#{image.imageId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Image URL</f:facet>
+                <h:outputText value="#{image.imageUrl}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{image.description}" />
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>

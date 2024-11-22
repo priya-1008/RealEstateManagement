@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Area Page</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:outputLabel value="Area Name:" />
+            <h:inputText value="#{adminBean.areaName}" />
+
+            <h:outputLabel value="City:" />
+            <h:selectOneMenu value="#{adminBean.cityid}">
+                <f:selectItem itemLabel="Select City" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{adminBean.cityList}" var="city"
+                               itemValue="#{city.cityId}" itemLabel="#{city.cityName}" />
+            </h:selectOneMenu>
+
+            <h:commandButton value="Add Area" action="#{adminBean.addArea()}" />
+        </h:form>
+        
+        <h1>All Area List</h1>
+        <h:dataTable value="#{adminBean.areaList}" var="area" border="2">
+            <h:column>
+                <f:facet name="header">Area Id</f:facet>
+                    #{area.areaId}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Area Name</f:facet>
+                    #{area.areaName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">City Name</f:facet>
+                    #{area.cityId.cityName}
+            </h:column>
+        </h:dataTable>
+    </h:body>
+</html>
